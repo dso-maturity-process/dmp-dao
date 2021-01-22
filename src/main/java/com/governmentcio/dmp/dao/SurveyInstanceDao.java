@@ -7,6 +7,7 @@ import java.sql.Date;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -44,7 +45,7 @@ public class SurveyInstanceDao {
 	@Column(name = "description")
 	private String description;
 
-	@OneToMany(mappedBy = "surveyResponseDao")
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "surveyInstanceDao")
 	private Set<
 			SurveyResponseDao> surveyResponseDaos = new HashSet<SurveyResponseDao>();
 

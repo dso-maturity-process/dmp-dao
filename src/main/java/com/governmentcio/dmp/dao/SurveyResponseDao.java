@@ -42,7 +42,7 @@ public class SurveyResponseDao {
 
 	@ManyToOne
 	@JoinColumn(name = "surveyinstanceid", nullable = false)
-	private SurveyResponseDao surveyResponseDao;
+	private SurveyInstanceDao surveyInstanceDao;
 
 	/**
 	 * 
@@ -76,13 +76,13 @@ public class SurveyResponseDao {
 	 * @param surveyResponseDao
 	 */
 	public SurveyResponseDao(Long surveyTemplateId, String question,
-			String answer, Long sequence, SurveyResponseDao surveyResponseDao) {
+			String answer, Long sequence, SurveyInstanceDao surveyInstanceDao) {
 		super();
 		this.surveyTemplateId = surveyTemplateId;
 		this.question = question;
 		this.answer = answer;
 		this.sequence = sequence;
-		this.surveyResponseDao = surveyResponseDao;
+		this.surveyInstanceDao = surveyInstanceDao;
 	}
 
 	/**
@@ -156,17 +156,17 @@ public class SurveyResponseDao {
 	}
 
 	/**
-	 * @return the surveyResponseDao
+	 * @return the surveyInstanceDao
 	 */
-	public SurveyResponseDao getSurveyResponseDao() {
-		return surveyResponseDao;
+	public SurveyInstanceDao getSurveyInstanceDao() {
+		return surveyInstanceDao;
 	}
 
 	/**
-	 * @param surveyResponseDao the surveyResponseDao to set
+	 * @param surveyInstanceDao the surveyInstanceDao to set
 	 */
-	public void setSurveyResponseDao(SurveyResponseDao surveyResponseDao) {
-		this.surveyResponseDao = surveyResponseDao;
+	public void setSurveyInstanceDao(SurveyInstanceDao surveyInstanceDao) {
+		this.surveyInstanceDao = surveyInstanceDao;
 	}
 
 	/*

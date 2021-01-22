@@ -203,6 +203,8 @@ public final class DomainFactory {
 							.setSurveyinstanceid(surveyResponseDao.getSurveyTemplateId());
 					surveyResponse.setAnswer(surveyResponseDao.getAnswer());
 					surveyResponse.setSequence(surveyResponseDao.getSequence());
+					
+					surveyInstance.getSurveyresponses().add(surveyResponse);
 				}
 			}
 		}
