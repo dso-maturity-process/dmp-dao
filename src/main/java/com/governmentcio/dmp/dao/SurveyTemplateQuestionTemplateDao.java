@@ -112,4 +112,17 @@ public class SurveyTemplateQuestionTemplateDao {
 		this.sequence = order;
 	}
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("SurveyTemplateQuestionTemplateDao [id=").append(id)
+				.append(", surveyTemplateDao=").append(surveyTemplateDao)
+				.append(", questionTemplateDao=").append(questionTemplateDao)
+				.append(", sequence=").append(sequence).append("]");
+		return builder.toString();
+	}
+
 }

@@ -152,7 +152,7 @@ public final class DomainFactory {
 			surveyTemplate.setDescription(surveyTemplateDao.getDescription());
 
 			Set<SurveyTemplateQuestionTemplateDao> surveyTemplateQuestionTemplateDaos = surveyTemplateDao
-					.getSurveyTemplateQuestionDaos();
+					.getSurveyTemplateQuestionTemplateDaos();
 
 			for (SurveyTemplateQuestionTemplateDao surveyTemplateQuestionTemplateDao : surveyTemplateQuestionTemplateDaos) {
 				if (null != surveyTemplateQuestionTemplateDao) {
@@ -162,6 +162,8 @@ public final class DomainFactory {
 
 						QuestionTemplate questionTemplate = new QuestionTemplate(
 								questionTemplateDao.getId(), questionTemplateDao.getText());
+						questionTemplate
+								.setSequence(surveyTemplateQuestionTemplateDao.getSequence());
 						surveyTemplate.getQuestionTemplates().add(questionTemplate);
 					}
 				}
@@ -203,7 +205,7 @@ public final class DomainFactory {
 							.setSurveyinstanceid(surveyResponseDao.getSurveyTemplateId());
 					surveyResponse.setAnswer(surveyResponseDao.getAnswer());
 					surveyResponse.setSequence(surveyResponseDao.getSequence());
-					
+
 					surveyInstance.getSurveyresponses().add(surveyResponse);
 				}
 			}
@@ -229,7 +231,7 @@ public final class DomainFactory {
 					questionTemplateDao.getText());
 
 			Set<SurveyTemplateQuestionTemplateDao> surveyTemplateQuestionTemplateDaos = questionTemplateDao
-					.getSurveyTemplateQuestionDaos();
+					.getSurveyTemplateQuestionTemplateDaos();
 
 			for (SurveyTemplateQuestionTemplateDao surveyTemplateQuestionTemplateDao : surveyTemplateQuestionTemplateDaos) {
 

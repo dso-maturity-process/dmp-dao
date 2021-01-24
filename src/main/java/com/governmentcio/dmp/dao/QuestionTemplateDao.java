@@ -96,7 +96,7 @@ public class QuestionTemplateDao {
 	 * @return the surveyTemplateQuestionTemplateDaos
 	 */
 	public Set<
-			SurveyTemplateQuestionTemplateDao> getSurveyTemplateQuestionDaos() {
+			SurveyTemplateQuestionTemplateDao> getSurveyTemplateQuestionTemplateDaos() {
 		return surveyTemplateQuestionTemplateDaos;
 	}
 
@@ -105,7 +105,7 @@ public class QuestionTemplateDao {
 	 *                                           surveyTemplateQuestionTemplateDaos
 	 *                                           to set
 	 */
-	public void setSurveyTemplateQuestionDaos(Set<
+	public void setSurveyTemplateQuestionTemplateDaos(Set<
 			SurveyTemplateQuestionTemplateDao> surveyTemplateQuestionTemplateDaos) {
 		this.surveyTemplateQuestionTemplateDaos = surveyTemplateQuestionTemplateDaos;
 	}

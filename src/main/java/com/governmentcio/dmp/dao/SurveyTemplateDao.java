@@ -118,15 +118,18 @@ public class SurveyTemplateDao {
 	/**
 	 * @return the surveyTemplateQuestionTemplateDaos
 	 */
-	public Set<SurveyTemplateQuestionTemplateDao> getSurveyTemplateQuestionDaos() {
+	public Set<
+			SurveyTemplateQuestionTemplateDao> getSurveyTemplateQuestionTemplateDaos() {
 		return surveyTemplateQuestionTemplateDaos;
 	}
 
 	/**
-	 * @param surveyTemplateQuestionTemplateDaos the surveyTemplateQuestionTemplateDaos to set
+	 * @param surveyTemplateQuestionTemplateDaos the
+	 *                                           surveyTemplateQuestionTemplateDaos
+	 *                                           to set
 	 */
-	public void setSurveyTemplateQuestionDaos(
-			Set<SurveyTemplateQuestionTemplateDao> surveyTemplateQuestionTemplateDaos) {
+	public void setSurveyTemplateQuestionTemplateDaos(Set<
+			SurveyTemplateQuestionTemplateDao> surveyTemplateQuestionTemplateDaos) {
 		this.surveyTemplateQuestionTemplateDaos = surveyTemplateQuestionTemplateDaos;
 	}
 
