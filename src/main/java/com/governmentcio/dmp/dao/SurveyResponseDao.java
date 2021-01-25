@@ -26,9 +26,6 @@ public class SurveyResponseDao {
 	@GeneratedValue
 	private Long id;
 
-	@Column(name = "surveytemplateid")
-	private Long surveyTemplateId;
-
 	@Column(name = "question")
 	private String question;
 
@@ -53,32 +50,29 @@ public class SurveyResponseDao {
 
 	/**
 	 * @param id
-	 * @param surveyTemplateId
 	 * @param question
 	 * @param answer
 	 * @param sequence
 	 */
-	public SurveyResponseDao(Long id, Long surveyTemplateId, String question,
-			String answer, Long sequence) {
+	public SurveyResponseDao(Long id, String question, String answer,
+			Long sequence) {
 		super();
 		this.id = id;
-		this.surveyTemplateId = surveyTemplateId;
 		this.question = question;
 		this.answer = answer;
 		this.sequence = sequence;
 	}
 
 	/**
-	 * @param surveyTemplateId
+	 * 
 	 * @param question
 	 * @param answer
 	 * @param sequence
-	 * @param surveyResponseDao
+	 * @param surveyInstanceDao
 	 */
-	public SurveyResponseDao(Long surveyTemplateId, String question,
-			String answer, Long sequence, SurveyInstanceDao surveyInstanceDao) {
+	public SurveyResponseDao(String question, String answer, Long sequence,
+			SurveyInstanceDao surveyInstanceDao) {
 		super();
-		this.surveyTemplateId = surveyTemplateId;
 		this.question = question;
 		this.answer = answer;
 		this.sequence = sequence;
@@ -97,20 +91,6 @@ public class SurveyResponseDao {
 	 */
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	/**
-	 * @return the surveyTemplateId
-	 */
-	public Long getSurveyTemplateId() {
-		return surveyTemplateId;
-	}
-
-	/**
-	 * @param surveyTemplateId the surveyTemplateId to set
-	 */
-	public void setSurveyTemplateId(Long surveyTemplateId) {
-		this.surveyTemplateId = surveyTemplateId;
 	}
 
 	/**
@@ -212,10 +192,8 @@ public class SurveyResponseDao {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("SurveyResponseDao [id=").append(id)
-				.append(", surveyTemplateId=").append(surveyTemplateId)
-				.append(", question=").append(question).append(", answer=")
-				.append(answer).append("]");
+		builder.append("SurveyResponseDao [id=").append(id).append(", question=")
+				.append(question).append(", answer=").append(answer).append("]");
 		return builder.toString();
 	}
 

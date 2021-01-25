@@ -25,7 +25,6 @@ public class SurveyResponseDaoSerializer
 
 		jgen.writeStartObject();
 		jgen.writeNumberField("id", value.getId());
-		jgen.writeNumberField("surveytemplateid", value.getSurveyTemplateId());
 		jgen.writeStringField("answer", value.getAnswer());
 		jgen.writeStringField("question", value.getQuestion());
 		jgen.writeEndObject();

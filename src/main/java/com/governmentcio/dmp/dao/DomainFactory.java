@@ -174,6 +174,51 @@ public final class DomainFactory {
 	}
 
 	/**
+	 * 
+	 * @param surveyResponse
+	 * @return
+	 */
+	public static SurveyResponseDao createSurveyResponseDao(
+			SurveyResponse surveyResponse) {
+
+		SurveyResponseDao surveyResponseDao = null;
+
+		if (null != surveyResponse) {
+
+			surveyResponseDao = new SurveyResponseDao();
+
+			surveyResponseDao.setQuestion(surveyResponse.getQuestion());
+			surveyResponseDao.setAnswer(surveyResponse.getAnswer());
+			surveyResponseDao.setSequence(surveyResponse.getSequence());
+
+		}
+
+		return surveyResponseDao;
+	}
+
+	/**
+	 * 
+	 * @param surveyResponseDao
+	 * @return
+	 */
+	public static SurveyResponse createSurveyResponse(
+			SurveyResponseDao surveyResponseDao) {
+		
+		SurveyResponse surveyResponse = null;
+		
+		if (null != surveyResponseDao) {
+			
+			surveyResponse = new SurveyResponse();
+			
+			surveyResponse.setId(surveyResponseDao.getId());
+			surveyResponse.setAnswer(surveyResponseDao.getAnswer());
+			surveyResponse.setSequence(surveyResponseDao.getSequence());
+		}
+		
+		return surveyResponse;
+	}
+	
+	/**
 	 * @param SurveyInstanceDao
 	 * @return
 	 */
@@ -201,8 +246,6 @@ public final class DomainFactory {
 					SurveyResponse surveyResponse = new SurveyResponse(
 							surveyResponseDao.getId(), surveyResponseDao.getQuestion());
 
-					surveyResponse
-							.setSurveyinstanceid(surveyResponseDao.getSurveyTemplateId());
 					surveyResponse.setAnswer(surveyResponseDao.getAnswer());
 					surveyResponse.setSequence(surveyResponseDao.getSequence());
 
