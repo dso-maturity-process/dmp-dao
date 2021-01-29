@@ -6,8 +6,8 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 
 import com.governmentcio.dmp.dao.SurveyTemplateQuestionTemplateDao;
 
-public interface SurveyTemplateQuestionTemplateRepository
-		extends PagingAndSortingRepository<SurveyTemplateQuestionTemplateDao, Long> {
+public interface SurveyTemplateQuestionTemplateRepository extends
+		PagingAndSortingRepository<SurveyTemplateQuestionTemplateDao, Long> {
 
 	/**
 	 * 
