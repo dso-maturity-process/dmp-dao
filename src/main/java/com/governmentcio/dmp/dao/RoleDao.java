@@ -13,6 +13,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
@@ -21,7 +22,8 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
  *
  */
 @Entity
-@Table(name = "role")
+@Table(name = "role", uniqueConstraints = @UniqueConstraint(columnNames = {
+		"roletype" }))
 @JsonSerialize(using = RoleDaoSerializer.class)
 public class RoleDao {
 
@@ -165,16 +167,15 @@ public class RoleDao {
 		return true;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
+	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("RoleDao [id=").append(id).append(", title=")
-				.append(", description=").append(description).append("]");
+		builder.append("RoleDao [id=").append(id).append(", type=").append(type)
+				.append(", name=").append(name).append(", description=")
+				.append(description).append("]");
 		return builder.toString();
 	}
 

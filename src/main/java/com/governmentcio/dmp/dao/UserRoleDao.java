@@ -3,12 +3,14 @@
  */
 package com.governmentcio.dmp.dao;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
@@ -17,7 +19,8 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
  *
  */
 @Entity
-@Table(name = "user_role")
+@Table(name = "user_role", uniqueConstraints = @UniqueConstraint(columnNames = {
+		"USER_ID", "ROLE_ID", "PROJECTID" }))
 @JsonSerialize(using = UserRoleDaoSerializer.class)
 public class UserRoleDao {
 
@@ -33,6 +36,7 @@ public class UserRoleDao {
 	@JoinColumn(name = "ROLE_ID")
 	private RoleDao roleDao;
 
+	@Column(name = "PROJECTID")
 	private Long projectID;
 
 	/**

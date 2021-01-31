@@ -13,6 +13,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
@@ -21,7 +22,8 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
  *
  */
 @Entity
-@Table(name = "project")
+@Table(name = "project", uniqueConstraints = @UniqueConstraint(columnNames = {
+		"NAME" }))
 @JsonSerialize(using = ProjectSerializer.class)
 public class ProjectDao {
 
@@ -29,10 +31,10 @@ public class ProjectDao {
 	@GeneratedValue
 	private Long id;
 
-	@Column(name = "name", unique = true)
+	@Column(name = "NAME", unique = true)
 	private String name;
 
-	@Column(name = "description")
+	@Column(name = "DESCRIPTION")
 	private String description;
 
 	@OneToMany(mappedBy = "projectDao", cascade = CascadeType.ALL)
