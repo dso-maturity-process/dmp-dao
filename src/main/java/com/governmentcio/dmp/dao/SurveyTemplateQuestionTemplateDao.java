@@ -3,12 +3,14 @@
  */
 package com.governmentcio.dmp.dao;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
@@ -17,7 +19,8 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
  *
  */
 @Entity
-@Table(name = "surveytemplate_questiontemplate")
+@Table(name = "surveytemplate_questiontemplate", uniqueConstraints = @UniqueConstraint(columnNames = {
+		"SURVEYTEMPLATE_ID", "QUESTION_ID", "SEQUENCE" }))
 @JsonSerialize(using = SurveyTemplateQuestionTemplateDaoSerializer.class)
 public class SurveyTemplateQuestionTemplateDao {
 
@@ -26,16 +29,17 @@ public class SurveyTemplateQuestionTemplateDao {
 	private Long id;
 
 	@ManyToOne
-	@JoinColumn(name = "surveytemplate_ID")
+	@JoinColumn(name = "SURVEYTEMPLATE_ID")
 	private SurveyTemplateDao surveyTemplateDao;
 
 	@ManyToOne
-	@JoinColumn(name = "question_ID")
+	@JoinColumn(name = "QUESTION_ID")
 	private QuestionTemplateDao questionTemplateDao;
 
 	/**
 	 * Order or sequence in the survey.
 	 */
+	@Column(name = "SEQUENCE")
 	private Long sequence;
 
 	/**
@@ -50,7 +54,8 @@ public class SurveyTemplateQuestionTemplateDao {
 	 * @param userDao
 	 * @param roleDao
 	 */
-	public SurveyTemplateQuestionTemplateDao(final SurveyTemplateDao surveyTemplateDao,
+	public SurveyTemplateQuestionTemplateDao(
+			final SurveyTemplateDao surveyTemplateDao,
 			final QuestionTemplateDao questionTemplateDao) {
 		this.surveyTemplateDao = surveyTemplateDao;
 		this.questionTemplateDao = questionTemplateDao;
@@ -112,7 +117,9 @@ public class SurveyTemplateQuestionTemplateDao {
 		this.sequence = order;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#toString()
 	 */
 	@Override

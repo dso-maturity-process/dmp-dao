@@ -13,6 +13,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
@@ -21,7 +22,8 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
  *
  */
 @Entity
-@Table(name = "question_template")
+@Table(name = "question_template", uniqueConstraints = @UniqueConstraint(columnNames = {
+		"TEXT" }))
 @JsonSerialize(using = QuestionTemplateDaoSerializer.class)
 public class QuestionTemplateDao {
 
@@ -29,7 +31,7 @@ public class QuestionTemplateDao {
 	@GeneratedValue
 	private Long id;
 
-	@Column(name = "text")
+	@Column(name = "TEXT")
 	private String text;
 
 	@OneToMany(mappedBy = "questionTemplateDao", cascade = CascadeType.ALL)

@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
@@ -18,7 +19,8 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
  *
  */
 @Entity
-@Table(name = "surveyresponse")
+@Table(name = "surveyresponse", uniqueConstraints = @UniqueConstraint(columnNames = {
+		"SEQUENCE", "QUESTION" }))
 @JsonSerialize(using = SurveyResponseDaoSerializer.class)
 public class SurveyResponseDao {
 
@@ -26,16 +28,17 @@ public class SurveyResponseDao {
 	@GeneratedValue
 	private Long id;
 
-	@Column(name = "question")
-	private String question;
-
-	@Column(name = "answer")
-	private String answer;
-
 	/**
 	 * Order or sequence in the survey.
 	 */
+	@Column(name = "SEQUENCE")
 	private Long sequence;
+
+	@Column(name = "QUESTION")
+	private String question;
+
+	@Column(name = "ANSWER")
+	private String answer;
 
 	@ManyToOne
 	@JoinColumn(name = "surveyinstanceid", nullable = false)
