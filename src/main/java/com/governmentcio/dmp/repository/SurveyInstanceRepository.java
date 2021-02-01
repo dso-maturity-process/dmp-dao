@@ -1,5 +1,7 @@
 package com.governmentcio.dmp.repository;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.repository.query.Param;
 
@@ -16,4 +18,13 @@ public interface SurveyInstanceRepository
 	 */
 	SurveyInstanceDao findByName(@Param("name") String name);
 
+	/**
+	 * Find all the {@link SurveyInstanceDao}s or assessments taken for this
+	 * project id.
+	 * 
+	 * @param projectId
+	 * @return
+	 */
+	Page<SurveyInstanceDao> findByProjectId(@Param("projectId") Long projectId,
+			Pageable pageRequest);
 }
