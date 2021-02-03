@@ -26,6 +26,9 @@ public class SurveyInstanceDaoSerializer
 		jgen.writeStartObject();
 		jgen.writeNumberField("id", value.getId());
 		jgen.writeStringField("surveytemplateid", value.getName());
+		jgen.writeNumberField("projectid", value.getProjectId());
+		jgen.writeNumberField("userid", value.getUserid());
+		jgen.writeNumberField("roleid", value.getRoleid());
 		jgen.writeStringField("name", value.getName());
 		jgen.writeStringField("description", value.getDescription());
 		jgen.writeEndObject();
