@@ -203,21 +203,21 @@ public final class DomainFactory {
 	 */
 	public static SurveyResponse createSurveyResponse(
 			SurveyResponseDao surveyResponseDao) {
-		
+
 		SurveyResponse surveyResponse = null;
-		
+
 		if (null != surveyResponseDao) {
-			
+
 			surveyResponse = new SurveyResponse();
-			
+
 			surveyResponse.setId(surveyResponseDao.getId());
 			surveyResponse.setAnswer(surveyResponseDao.getAnswer());
 			surveyResponse.setSequence(surveyResponseDao.getSequence());
 		}
-		
+
 		return surveyResponse;
 	}
-	
+
 	/**
 	 * @param SurveyInstanceDao
 	 * @return
@@ -231,7 +231,8 @@ public final class DomainFactory {
 
 			surveyInstance = new SurveyInstance(surveyInstanceDao.getId(),
 					surveyInstanceDao.getSurveyTemplateId(),
-					surveyInstanceDao.getProjectId(), surveyInstanceDao.getName());
+					surveyInstanceDao.getProjectId(), surveyInstanceDao.getUserid(),
+					surveyInstanceDao.getRoleid(), surveyInstanceDao.getName());
 
 			surveyInstance.setStartTimestamp(surveyInstanceDao.getStartTimestamp());
 			surveyInstance.setDescription(surveyInstanceDao.getDescription());
