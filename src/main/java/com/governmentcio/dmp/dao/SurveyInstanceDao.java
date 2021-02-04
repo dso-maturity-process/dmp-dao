@@ -26,31 +26,31 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
  */
 @Entity
 @Table(name = "surveyinstance", uniqueConstraints = @UniqueConstraint(columnNames = {
-		"NAME" }))
+		"USERID", "ROLEID", "PROJECTID" }))
 @JsonSerialize(using = SurveyInstanceDaoSerializer.class)
 public class SurveyInstanceDao {
 
 	@Id
 	@GeneratedValue
-	@Column(name = "surveyinstanceid")
+	@Column(name = "SURVEYINSTANCEID")
 	private Long id;
 
-	@Column(name = "surveytemplateid")
+	@Column(name = "SURVERYTEMPLATEID")
 	private Long surveyTemplateId;
 
-	@Column(name = "projectid")
+	@Column(name = "PROJECTID")
 	private Long projectId;
 
-	@Column(name = "userid")
+	@Column(name = "USERID")
 	private Long userid;
 
-	@Column(name = "roleid")
+	@Column(name = "ROLEID")
 	private Long roleid;
 
-	@Column(name = "name")
+	@Column(name = "NAME")
 	private String name;
 
-	@Column(name = "description")
+	@Column(name = "DESCRIPTION")
 	private String description;
 
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "surveyInstanceDao")
