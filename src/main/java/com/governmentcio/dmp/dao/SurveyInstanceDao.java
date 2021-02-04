@@ -26,7 +26,7 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
  */
 @Entity
 @Table(name = "surveyinstance", uniqueConstraints = @UniqueConstraint(columnNames = {
-		"USERID", "ROLEID", "PROJECTID" }))
+		"PROJECTID", "USERID", "ROLEID" }))
 @JsonSerialize(using = SurveyInstanceDaoSerializer.class)
 public class SurveyInstanceDao {
 
